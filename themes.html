@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>かわいいUI 5案切替｜矢貫さんLP</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@400;500;700;900&family=Oswald:wght@500;600&family=DotGothic16&display=swap" rel="stylesheet">
+<style>
+/* ============ 共通骨格 ============ */
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  font-family:"Zen Kaku Gothic New",-apple-system,BlinkMacSystemFont,"Hiragino Sans","Noto Sans JP",sans-serif;
+  background:var(--bg);color:var(--ink);line-height:1.85;
+  -webkit-font-smoothing:antialiased;
+  padding-bottom:86px; /* 切替バーぶん */
+}
+body,p,li,td,th,div,span,b,small,summary,button,a,h1,h2,h3,h4{word-break:auto-phrase;line-break:strict;overflow-wrap:anywhere}
+h1,h2,h3,h4,.btn,.chip,.eyebrow,.sec-t,.sec-lead,.badge{text-wrap:balance}
+p{text-wrap:pretty}
+.wrap{max-width:880px;margin:0 auto;padding:0 20px;position:relative;z-index:1}
+section{position:relative;overflow:hidden;padding:60px 0}
+.eyebrow{letter-spacing:.18em;font-size:13px;font-weight:900;color:var(--accent);text-transform:uppercase}
+.sec-t{font-size:clamp(25px,5vw,34px);font-weight:900;line-height:1.45;margin:6px 0 10px}
+.sec-lead{color:var(--sub);max-width:62ch;font-size:14.5px}
+:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+
+/* ヒーロー */
+.hero{background:var(--hero-bg);color:var(--hero-ink);padding:64px 0 72px;position:relative;overflow:hidden}
+.ticket{background:var(--card);color:var(--ink);border-radius:var(--r);max-width:640px;margin:0 auto;position:relative;box-shadow:var(--float);animation:in .9s cubic-bezier(.22,1,.36,1) both}
+@keyframes in{from{opacity:0;transform:translateY(26px) scale(.97)}to{opacity:1;transform:translateY(0) scale(1)}}
+.ticket::before,.ticket::after{content:"";position:absolute;width:26px;height:26px;border-radius:50%;background:var(--hero-bg);top:50%;transform:translateY(-50%)}
+.ticket::before{left:-13px}.ticket::after{right:-13px}
+.t-main{padding:26px 30px;border-bottom:2px dashed var(--line)}
+.t-date{font-family:"Oswald",sans-serif;font-size:14px;letter-spacing:.12em;color:var(--accent);font-weight:600}
+.t-title{font-size:clamp(18px,4vw,23px);font-weight:900;line-height:1.5;margin-top:4px}
+.t-sub{font-size:13px;color:var(--sub);margin-top:6px}
+.t-foot{padding:14px 30px;display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap}
+.t-seat{font-family:"Oswald",sans-serif;letter-spacing:.1em;font-size:13.5px;color:var(--accent2);font-weight:600}
+.t-adm{font-size:12.5px;font-weight:700;background:var(--accent);color:#fff;border-radius:999px;padding:3px 14px;white-space:nowrap}
+.hero h1{font-size:clamp(27px,6vw,40px);font-weight:900;line-height:1.5;text-align:center;margin-top:40px}
+.hero .lead{color:var(--hero-sub);text-align:center;max-width:56ch;margin:14px auto 0;font-size:14.5px}
+.hero .mark{color:var(--hero-mark)}
+
+/* 観測 */
+.obs{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin-top:26px}
+.ob{background:var(--card);border-radius:var(--r);padding:22px 24px}
+.ob .ic{font-size:24px}
+.ob h3{font-size:16px;font-weight:900;margin:6px 0 4px}
+.ob p{font-size:13.5px;color:var(--sub)}
+.oneliner{margin-top:20px;text-align:center;font-weight:900;font-size:15px;color:var(--accent2)}
+
+/* 試作 */
+.proto{background:var(--card);border-radius:var(--r);margin-top:30px;overflow:hidden;box-shadow:var(--float)}
+.p-head{padding:24px 26px 18px;border-bottom:2px dashed var(--line)}
+.p-no{font-family:"Oswald",sans-serif;color:var(--accent);font-weight:600;letter-spacing:.14em;font-size:12.5px}
+.p-name{font-size:clamp(19px,4.5vw,24px);font-weight:900;line-height:1.5;margin-top:2px}
+.p-copy{color:var(--sub);font-size:13.5px;margin-top:6px;max-width:60ch}
+.p-body{padding:22px 26px 28px}
+
+/* 試作1 映画リスト */
+.movies{display:flex;flex-direction:column;gap:10px}
+.mv{display:flex;align-items:center;gap:12px;padding:13px 16px;background:var(--bg);border-radius:calc(var(--r) - 4px);flex-wrap:wrap}
+.mv .name{font-weight:700;font-size:14px;flex:1;min-width:170px}
+.mv .st{font-size:12.5px;font-weight:700;border-radius:999px;padding:2px 12px;white-space:nowrap}
+.st.ok{background:#DDEBDC;color:#2E6B3C}
+.st.wait{background:#F4E3C8;color:#8A5A16}
+.st.watch{background:#E3E0F4;color:#4C3E96}
+.mv button{font-family:inherit;font-size:13px;font-weight:700;border:none;border-radius:999px;padding:8px 18px;cursor:pointer;background:var(--accent);color:#fff;transition:transform .12s cubic-bezier(.34,1.56,.64,1),box-shadow .12s ease}
+.mv button:hover{transform:translateY(-2px);box-shadow:0 8px 18px color-mix(in srgb,var(--accent) 35%,transparent)}
+.mv button:active{transform:scale(.97)}
+.mv button.done{background:var(--line);color:var(--sub);cursor:default;transform:none;box-shadow:none}
+.notif{margin-top:16px;background:#173A22;border-radius:var(--r);padding:16px 18px;color:#E9F2E6;display:none}
+.notif.show{display:block;animation:in .5s cubic-bezier(.22,1,.36,1) both}
+.notif .from{display:flex;align-items:center;gap:8px;font-size:12.5px;color:#9DC29B;font-weight:700}
+.notif .dot{width:26px;height:26px;border-radius:8px;background:#33C458;display:grid;place-items:center;font-size:14px}
+.notif p{font-size:13.5px;margin-top:8px;line-height:1.75}
+.notif .sample{font-size:12.5px;color:#7E9A7C;margin-top:8px}
+
+/* 試作2 淹れごと手帖 */
+.cup-line{display:flex;align-items:center;gap:14px;background:var(--bg);border-radius:calc(var(--r) - 4px);padding:14px 16px}
+.cup-line p{font-size:13.5px;color:var(--sub)}
+.karte{display:none;margin-top:16px;background:var(--bg);border-radius:var(--r);padding:20px 22px}
+.karte.show{display:block;animation:in .6s cubic-bezier(.22,1,.36,1) both}
+.karte .k-t{font-size:12.5px;font-weight:900;letter-spacing:.1em;color:var(--accent)}
+.k-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:8px 16px;margin-top:10px}
+.k-grid .kv{font-size:13.5px}
+.k-grid .kv b{display:block;font-size:12.5px;color:var(--sub);font-weight:700}
+.k-voice{margin-top:12px;border-left:4px solid var(--accent2);padding:4px 14px;font-size:13.5px;color:var(--sub)}
+.k-note{font-size:12.5px;color:var(--sub);margin-top:10px}
+.map-card{display:none;margin-top:16px;background:var(--bg);border-radius:var(--r);padding:20px 22px}
+.map-card.show{display:block;animation:in .6s cubic-bezier(.22,1,.36,1) both}
+.map-flex{display:flex;gap:18px;align-items:center;flex-wrap:wrap}
+.map-flex svg{flex:0 0 150px}
+.map-tags{flex:1;min-width:200px}
+.map-tags .tag{display:inline-block;font-size:12.5px;font-weight:700;background:var(--card);border-radius:999px;padding:4px 14px;margin:3px 4px 3px 0;color:var(--accent2)}
+.map-tags p{font-size:13.5px;color:var(--sub);margin-top:10px}
+.studio-btn{display:block;margin:16px auto 0;font-family:inherit;font-size:14px;font-weight:900;border:none;border-radius:999px;padding:12px 28px;cursor:pointer;background:var(--ink);color:var(--card);transition:transform .12s cubic-bezier(.34,1.56,.64,1),box-shadow .12s ease}
+.studio-btn:hover{transform:translateY(-2px);box-shadow:0 12px 26px rgba(0,0,0,.22)}
+.studio-btn:active{transform:scale(.97)}
+
+/* 試作3 語り部 */
+.talk{background:var(--bg);border-radius:calc(var(--r) - 4px);padding:16px 18px}
+.talk .t{font-size:12.5px;font-weight:900;color:var(--accent2);letter-spacing:.08em;margin-bottom:6px}
+.talk p{font-size:13.5px;color:var(--sub)}
+.article{display:none;margin-top:16px;background:var(--bg);border-radius:var(--r);padding:24px 26px}
+.article.show{display:block;animation:in .6s cubic-bezier(.22,1,.36,1) both}
+.article .a-cat{font-size:12.5px;font-weight:900;color:var(--accent);letter-spacing:.14em}
+.article h4{font-size:18px;font-weight:900;line-height:1.6;margin:4px 0 10px}
+.article p{font-size:13.5px;color:var(--sub)}
+.article .pull{border-left:4px solid var(--accent2);padding:4px 14px;margin:12px 0;color:var(--accent2);font-weight:700;font-size:14px}
+
+/* メニュー */
+.menu{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin-top:26px}
+.mi{background:var(--card);border-radius:var(--r);padding:20px 22px;transition:transform .16s cubic-bezier(.22,1,.36,1)}
+.mi:hover{transform:translateY(-3px)}
+.mi .ic{font-size:22px}
+.mi h3{font-size:15px;font-weight:900;margin:6px 0 4px}
+.mi p{font-size:13px;color:var(--sub)}
+
+/* 締め */
+.last{background:var(--hero-bg);color:var(--hero-ink);text-align:center}
+.last .sec-t{color:var(--hero-ink)}
+.last p{color:var(--hero-sub);max-width:54ch;margin:0 auto;font-size:14px}
+.last .big{font-size:clamp(18px,4vw,23px);font-weight:900;color:var(--hero-mark);margin-top:20px}
+footer{padding:24px 0 40px;text-align:center;font-size:12.5px;color:var(--hero-sub);background:var(--hero-bg)}
+
+@media(max-width:700px){
+  .obs,.menu,.k-grid{grid-template-columns:1fr}
+  section{padding:46px 0}
+  .p-head,.p-body{padding-left:18px;padding-right:18px}
+}
+
+/* ============ 切替バー ============ */
+#switcher{position:fixed;bottom:0;left:0;right:0;z-index:99;background:rgba(30,26,22,.94);backdrop-filter:blur(8px);padding:12px 10px calc(12px + env(safe-area-inset-bottom));display:flex;gap:8px;justify-content:center;flex-wrap:wrap}
+#switcher button{font-family:inherit;font-size:13px;font-weight:900;border:2px solid transparent;border-radius:999px;padding:8px 16px;cursor:pointer;background:#4A4038;color:#EFE7DC}
+#switcher button.on{background:#F2C94C;color:#26201B}
+
+/* ============ 案1: レトロ喫茶 ============ */
+body[data-theme="1"]{
+  --bg:#FBF1DE; --card:#FFFDF6; --ink:#3B2B20; --sub:#7A6A58; --line:#E5D6BC;
+  --accent:#C4572A; --accent2:#7A6030; --r:12px;
+  --hero-bg:#3B2B20; --hero-ink:#F7EDDC; --hero-sub:#C9B79D; --hero-mark:#EBB94E;
+  --float:0 2px 4px rgba(90,60,30,.08),0 16px 34px rgba(90,60,30,.16);
+}
+body[data-theme="1"] .ob,body[data-theme="1"] .mi{border:2px dashed var(--line)}
+body[data-theme="1"] .t-adm,body[data-theme="1"] .eyebrow{letter-spacing:.22em}
+body[data-theme="1"] .sec-t::after{content:"";display:block;width:64px;height:4px;border-radius:99px;background:var(--accent);margin-top:8px}
+body[data-theme="1"] .hero::after,body[data-theme="1"] .last::after{content:"";position:absolute;left:0;right:0;bottom:-1px;height:14px;background:radial-gradient(circle at 7px -3px, transparent 8px, var(--bg) 9px);background-size:14px 14px;pointer-events:none}
+body[data-theme="1"] .last::after{display:none}
+
+/* ============ 案2: パステルシネマ ============ */
+body[data-theme="2"]{
+  --bg:#FDEFF3; --card:#FFFDFE; --ink:#4A3540; --sub:#8A7280; --line:#F0D6DE;
+  --accent:#E0607E; --accent2:#4E9B82; --r:18px;
+  --hero-bg:#F7D9E1; --hero-ink:#4A3540; --hero-sub:#8A7280; --hero-mark:#D9447A;
+  --float:0 2px 5px rgba(200,90,130,.10),0 16px 36px rgba(200,90,130,.18);
+}
+body[data-theme="2"] .ticket{border:3px solid var(--ink)}
+body[data-theme="2"] .ticket::before,body[data-theme="2"] .ticket::after{border:3px solid var(--ink)}
+body[data-theme="2"] .t-main{border-bottom:3px dashed var(--ink)}
+body[data-theme="2"] .hero{background-image:radial-gradient(rgba(255,255,255,.7) 3px,transparent 3px);background-size:26px 26px}
+body[data-theme="2"] .ob,body[data-theme="2"] .mi{border:2px solid var(--line)}
+body[data-theme="2"] .eyebrow::before{content:"✦ "}
+body[data-theme="2"] .studio-btn{background:var(--accent);color:#fff}
+
+/* ============ 案3: クラフト＆ステッカー ============ */
+body[data-theme="3"]{
+  --bg:#E7D8BF; --card:#FFFEF9; --ink:#3E332A; --sub:#7C6E5D; --line:#E2D8C6;
+  --accent:#D9663D; --accent2:#4E7B9B; --r:10px;
+  --hero-bg:#4E4238; --hero-ink:#F5EDE0; --hero-sub:#C6B8A4; --hero-mark:#F2B23E;
+  --float:0 3px 0 rgba(80,60,40,.18),0 14px 30px rgba(80,60,40,.22);
+}
+body[data-theme="3"]{background-image:repeating-linear-gradient(115deg,rgba(255,255,255,.06) 0 3px,transparent 3px 6px)}
+body[data-theme="3"] .ob,body[data-theme="3"] .mi,body[data-theme="3"] .proto,body[data-theme="3"] .ticket{border:6px solid #fff;box-shadow:0 3px 0 rgba(80,60,40,.16),0 12px 26px rgba(80,60,40,.2)}
+body[data-theme="3"] .ob:nth-child(odd){transform:rotate(-.6deg)}
+body[data-theme="3"] .ob:nth-child(even){transform:rotate(.5deg)}
+body[data-theme="3"] .mi:nth-child(odd){transform:rotate(.5deg)}
+body[data-theme="3"] .mi:nth-child(even){transform:rotate(-.5deg)}
+body[data-theme="3"] .p-head{position:relative}
+body[data-theme="3"] .p-head::before{content:"";position:absolute;top:-14px;left:50%;transform:translateX(-50%) rotate(-2deg);width:110px;height:26px;background:rgba(242,178,62,.55);border-radius:2px}
+
+/* ============ 案4: ラテ＆まめ ============ */
+body[data-theme="4"]{
+  --bg:#F6EDDF; --card:#FFFDF8; --ink:#4A3423; --sub:#8A745E; --line:#EADFCB;
+  --accent:#7A4A2B; --accent2:#71904F; --r:26px;
+  --hero-bg:#EBDCC4; --hero-ink:#4A3423; --hero-sub:#8A745E; --hero-mark:#7A4A2B;
+  --float:0 2px 6px rgba(122,74,43,.10),0 18px 40px rgba(122,74,43,.16);
+}
+body[data-theme="4"] .hero{background-image:radial-gradient(ellipse 7px 10px at center,rgba(122,74,43,.10) 60%,transparent 61%);background-size:46px 40px}
+body[data-theme="4"] .ticket{border-radius:34px}
+body[data-theme="4"] .ob,body[data-theme="4"] .mi{border-radius:30px}
+body[data-theme="4"] .ob{background:var(--card)}
+body[data-theme="4"] .ob:nth-child(1){border-radius:42px 20px 42px 20px}
+body[data-theme="4"] .ob:nth-child(2){border-radius:20px 42px 20px 42px}
+body[data-theme="4"] .ob:nth-child(3){border-radius:20px 42px 20px 42px}
+body[data-theme="4"] .ob:nth-child(4){border-radius:42px 20px 42px 20px}
+body[data-theme="4"] .studio-btn{background:var(--accent);color:#FFF7EA}
+body[data-theme="4"] .mv button{background:var(--accent2)}
+
+/* ============ 案5: ドット絵喫茶 ============ */
+body[data-theme="5"]{
+  --bg:#FFF6DE; --card:#FFFFFF; --ink:#2B2B33; --sub:#6E6A75; --line:#E4DCC8;
+  --accent:#E4572E; --accent2:#2E86AB; --r:0px;
+  --hero-bg:#2B2B33; --hero-ink:#FFF6DE; --hero-sub:#B9B2C4; --hero-mark:#FFD23F;
+  --float:6px 6px 0 rgba(43,43,51,.9);
+}
+body[data-theme="5"] h1,body[data-theme="5"] .sec-t,body[data-theme="5"] .p-name,body[data-theme="5"] .t-title{font-family:"DotGothic16","Zen Kaku Gothic New",sans-serif;font-weight:400}
+body[data-theme="5"] .ticket,body[data-theme="5"] .proto{border:3px solid var(--ink)}
+body[data-theme="5"] .ob,body[data-theme="5"] .mi{border:3px solid var(--ink);box-shadow:4px 4px 0 rgba(43,43,51,.9)}
+body[data-theme="5"] .mv button,body[data-theme="5"] .studio-btn,body[data-theme="5"] .t-adm{border-radius:0;box-shadow:3px 3px 0 rgba(43,43,51,.9)}
+body[data-theme="5"] .mv .st{border-radius:0}
+body[data-theme="5"] .ticket::before,body[data-theme="5"] .ticket::after{border-radius:0;width:20px;height:20px}
+body[data-theme="5"] .eyebrow::before{content:"▶ "}
+body[data-theme="5"] .hero{background-image:radial-gradient(rgba(255,255,255,.08) 2px,transparent 2px);background-size:16px 16px}
+</style>
+</head>
+<body data-theme="1">
+
+<header class="hero">
+  <div class="wrap">
+    <div class="ticket">
+      <div class="t-main">
+        <div class="t-date">2026.08.28 FRI ／ CINECITTA' 川崎</div>
+        <div class="t-title">『劇場版 魔法少女まどか☆マギカ〈ワルプルギスの廻天〉』</div>
+        <div class="t-sub">2024冬 → 2025冬 → 2026夏。三度の延期を越えて、ついに公開。おめでとうございます。</div>
+      </div>
+      <div class="t-foot">
+        <div class="t-seat">SEAT：一番後ろの左端（矢貫さん予約）</div>
+        <div class="t-adm">鑑賞記念号</div>
+      </div>
+    </div>
+    <h1>矢貫さん専用<br><span class="mark">AI活用カタログ</span></h1>
+    <p class="lead">映画の待ち時間に、ユウキが勝手に作りました。ふだんのLINEでの会話から「矢貫さんの毎日にAIが効きそうなところ」を拾って、触れる試作にしてあります。ネタバレは一切ありません。</p>
+  </div>
+</header>
+
+<section>
+  <div class="wrap">
+    <div class="eyebrow">FIELD NOTES</div>
+    <h2 class="sec-t">観測された矢貫さん</h2>
+    <p class="sec-lead">提案の根拠は全部、実際のやりとりから。間違ってたらランチのときに訂正してください。</p>
+    <div class="obs">
+      <div class="ob"><div class="ic">🎬</div><h3>映画の同志</h3><p>まどマギ、ガルクラ（川崎は聖地）、スピルバーグ新作、カンヌ出品アニメまで守備範囲が広い。座席は一番後ろの左端派。</p></div>
+      <div class="ob"><div class="ic">☕</div><h3>コーヒーの人</h3><p>手挽きミルにネルドリップ、飲み比べイベント参加、焙煎所チェック。今号の特集はここです。</p></div>
+      <div class="ob"><div class="ic">📚</div><h3>読んで、書く人</h3><p>『プロジェクト・ヘイル・メアリー』を薦め、書評の原稿も書く。読むだけで終わらない側の人。</p></div>
+      <div class="ob"><div class="ic">🌳</div><h3>森の語り部</h3><p>小網代の森の保全運動の歴史を、1983年からの流れで語れる。この知識、ちゃんと形に残すべきでは。</p></div>
+    </div>
+    <div class="oneliner">観測結果：AIと相性がいい趣味しか、ない。</div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="eyebrow">PROTOTYPE 01</div>
+    <h2 class="sec-t">公開日番人</h2>
+    <p class="sec-lead">「そろそろ予定立てたいのに、日にち分からないと動けない」——あの悩みを解決。気になる映画を登録しておくと、AIが毎朝公式情報を見回りして、公開日の発表・延期・前売り開始をLINEに知らせます。</p>
+    <div class="proto">
+      <div class="p-head">
+        <div class="p-no">DEMO</div>
+        <div class="p-name">見張りリスト（触ってみて）</div>
+        <p class="p-copy">「見張る」を押すと、通知が来るとこんな感じ、というサンプルが出ます。</p>
+      </div>
+      <div class="p-body">
+        <div class="movies">
+          <div class="mv"><span class="name">ワルプルギスの廻天</span><span class="st ok">公開済・本日鑑賞</span><button class="done" disabled>任務完了</button></div>
+          <div class="mv"><span class="name">ディスクロージャー・デイ</span><span class="st wait">10/1 公開予定</span><button onclick="watch(this)">見張る</button></div>
+          <div class="mv"><span class="name">（気になる作品を何本でも）</span><span class="st watch">発表待ち</span><button onclick="watch(this)">見張る</button></div>
+        </div>
+        <div class="notif" id="notif">
+          <div class="from"><span class="dot">🔔</span>公開日番人（LINE通知のイメージ）</div>
+          <p>おはようございます。見張り中の『ディスクロージャー・デイ』、本日<b>前売り券の販売が始まりました</b>。10/1公開のままで延期の気配はありません。ユウキさんと予定を合わせるなら今週がおすすめです。</p>
+          <p class="sample">※これはサンプル通知です。実物は毎朝の見回り結果から自動生成されます。</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="eyebrow">PROTOTYPE 02 ── 今号の特集</div>
+    <h2 class="sec-t">淹れごと手帖</h2>
+    <p class="sec-lead">手挽きのミル、ネルドリップ、飲み比べイベント。矢貫さんのコーヒーはもう趣味の域を超えています。もったいないのは、一杯ごとの記憶が消えていくこと。<b>写真1枚とひとこと</b>で、AIが「一杯のカルテ」を残します。</p>
+    <div class="proto">
+      <div class="p-head">
+        <div class="p-no">DEMO</div>
+        <div class="p-name">写真1枚 → 一杯のカルテ</div>
+        <p class="p-copy">豆の袋を撮ると、AIが銘柄と焙煎度を読み取り。感想は飲みながらしゃべるだけ。</p>
+      </div>
+      <div class="p-body">
+        <div class="cup-line">
+          <svg viewBox="0 0 64 64" width="52" height="52" aria-hidden="true">
+            <path d="M14 22h30v16a13 13 0 0 1-13 13h-4a13 13 0 0 1-13-13z" fill="#A9714B"/>
+            <path d="M44 25h5a6 6 0 0 1 0 12h-5v-5h4a2.5 2.5 0 0 0 0-5h-4z" fill="#A9714B"/>
+            <ellipse cx="29" cy="22" rx="15" ry="3.4" fill="#6B4226"/>
+            <path d="M23 10c0 3-3 3-3 6m8-6c0 3-3 3-3 6m8-6c0 3-3 3-3 6" stroke="#B99B84" stroke-width="2" fill="none" stroke-linecap="round"/>
+            <ellipse cx="25.5" cy="36" rx="1.4" ry="1.8" fill="#3C2415"/>
+            <ellipse cx="33.5" cy="36" rx="1.4" ry="1.8" fill="#3C2415"/>
+            <path d="M26.6 41c1.5 1.3 4.3 1.3 5.8 0" stroke="#3C2415" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+          </svg>
+          <p>けさの一杯を淹れたら、袋をパシャ。「ちょい渋かった」とつぶやく。それだけ。</p>
+        </div>
+        <button class="studio-btn" onclick="karte(this)">☕ けさの一杯を記録する</button>
+        <div class="karte" id="karte">
+          <div class="k-t">☕ 一杯のカルテ #041（サンプル）</div>
+          <div class="k-grid">
+            <div class="kv"><b>豆</b>エチオピア イルガチェフェ</div>
+            <div class="kv"><b>焙煎</b>中煎り（袋の表記から）</div>
+            <div class="kv"><b>挽き目</b>中細（前回と同じ）</div>
+            <div class="kv"><b>淹れ方</b>ネルドリップ・92℃</div>
+          </div>
+          <div class="k-voice">🎙「香りはいいけど、ちょい渋い。蒸らし長すぎたかな」</div>
+          <div class="k-note">→ AIの返事：「渋みは湯温が高めの可能性も。次は88℃で試すのはどうでしょう」。<b>次の一杯がちょっとうまくなる記録</b>です。</div>
+          <button class="studio-btn" onclick="brewmap(this)">📈 これが30杯たまると…</button>
+        </div>
+        <div class="map-card" id="mapcard">
+          <div class="k-t">📈 矢貫さんの好みマップ（サンプル）</div>
+          <div class="map-flex">
+            <svg viewBox="0 0 150 150" width="150" height="150" aria-hidden="true">
+              <polygon points="75,10 138,56 114,132 36,132 12,56" fill="none" stroke="#C9BBA8" stroke-width="1.5"/>
+              <polygon points="75,36 113,61 101,113 49,113 37,61" fill="none" stroke="#DDD2C2" stroke-width="1"/>
+              <polygon points="75,30 122,62 96,118 46,106 30,58" fill="rgba(122,74,43,.28)" stroke="#7A4A2B" stroke-width="2.5" stroke-linejoin="round"/>
+              <text x="75" y="8" text-anchor="middle" font-size="10.5" fill="#6E5A44">コク</text>
+              <text x="143" y="56" text-anchor="middle" font-size="10.5" fill="#6E5A44">香り</text>
+              <text x="118" y="145" text-anchor="middle" font-size="10.5" fill="#6E5A44">甘み</text>
+              <text x="32" y="145" text-anchor="middle" font-size="10.5" fill="#6E5A44">酸味</text>
+              <text x="7" y="56" text-anchor="middle" font-size="10.5" fill="#6E5A44">苦味</text>
+            </svg>
+            <div class="map-tags">
+              <span class="tag">香り重視</span><span class="tag">中深煎りが打率高め</span><span class="tag">ネルと相性◎はナッツ系</span>
+              <p>たまった記録から、AIが「次に試すと当たりそうな豆」や、フォロー中の焙煎所の新豆入荷を教えてくれるようになります。飲み比べイベントの戦績も、ぜんぶここに。</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="eyebrow">PROTOTYPE 03</div>
+    <h2 class="sec-t">語り部プレス</h2>
+    <p class="sec-lead">小網代の森の保全史を語れる人は、そう多くない。散歩しながらスマホに話すだけで、AIが文字起こし→構成→記事に仕上げます。書評もこの方式なら、原稿に向かう前に骨組みが出来上がる。</p>
+    <div class="proto">
+      <div class="p-head">
+        <div class="p-no">DEMO</div>
+        <div class="p-name">話し言葉 → 読み物</div>
+        <p class="p-copy">上が「話したまま」、ボタンで「記事になった姿」が出ます。</p>
+      </div>
+      <div class="p-body">
+        <div class="talk">
+          <div class="t">🎙 話したまま（文字起こしイメージ）</div>
+          <p>「小網代の森の保全運動ってのは、1983年からだからもう40年以上の歴史があってね、今は自然公園として保全管理されてるんだけど、ソーラーパネルとかにならなかったのは、まあ当時の人たちのおかげで…」</p>
+        </div>
+        <button class="studio-btn" onclick="press(this)">📰 記事に仕上げる</button>
+        <div class="article" id="article">
+          <div class="a-cat">連載・森を残した人たち 第1回</div>
+          <h4>1983年、小網代の森で始まったこと</h4>
+          <p>三浦半島に、流域がまるごと残された森がある。開発の波を越えて自然公園として守られるまでには、40年を超える保全運動の積み重ねがあった。</p>
+          <div class="pull">「あの森が今もあるのは、偶然じゃない」</div>
+          <p>——続きは、矢貫さんが話した分だけ自動で増えていきます。<br>※文章の構成はサンプルです。</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="eyebrow">SIDE MENU</div>
+    <h2 class="sec-t">小さいけど効くやつ</h2>
+    <p class="sec-lead">本日のおすすめ以外にも、こんな一品料理をご用意できます。</p>
+    <div class="menu">
+      <div class="mi"><div class="ic">🔩</div><h3>なくしもの台帳</h3><p>ミルのバネとネジの事件を繰り返さない。「どこに何をしまったか」を写真で記録、聞けば答える。</p></div>
+      <div class="mi"><div class="ic">🗺</div><h3>聖地巡礼プランナー</h3><p>ガルクラの川崎みたいに、作品の聖地をルート化。移動時間と営業時間まで調べた地図を出してくれる。</p></div>
+      <div class="mi"><div class="ic">📖</div><h3>書評の壁打ち相手</h3><p>読み終えた本の感想を話すと、論点を整理して質問を返してくる。原稿の下ごしらえが半分終わる。</p></div>
+      <div class="mi"><div class="ic">👻</div><h3>都市伝説ファクトチェッカー</h3><p>動画で見た「アレって本当？」を出典つきで検証。考察の精度が上がる。</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="last">
+  <div class="wrap">
+    <h2 class="sec-t">気になったのは、どれですか</h2>
+    <p>申込みフォームなんてありません。このあとのランチで、番号か名前をひとこと言ってもらえれば、ユウキがその場で作り始めます。</p>
+    <div class="big">☕ それでは、遅めのランチで。</div>
+  </div>
+</section>
+
+<footer>2026.8.28 ワルプルギスの廻天 公開記念 ／ 制作：ユウキ ＋ AI（このページも今朝のカフェで生まれました）</footer>
+
+<div id="switcher" role="tablist" aria-label="デザイン切替">
+  <button data-t="1" class="on" onclick="setTheme(this)">① レトロ喫茶</button>
+  <button data-t="2" onclick="setTheme(this)">② パステルシネマ</button>
+  <button data-t="3" onclick="setTheme(this)">③ ステッカー</button>
+  <button data-t="4" onclick="setTheme(this)">④ ラテ＆まめ</button>
+  <button data-t="5" onclick="setTheme(this)">⑤ ドット絵</button>
+</div>
+
+<script>
+function setTheme(btn){
+  document.body.dataset.theme = btn.dataset.t;
+  document.querySelectorAll('#switcher button').forEach(b => b.classList.toggle('on', b === btn));
+}
+var qp = new URLSearchParams(location.search).get('theme');
+if (qp) {
+  var target = document.querySelector('#switcher button[data-t="' + qp.replace(/[^1-5]/g, '') + '"]');
+  if (target) setTheme(target);
+}
+function watch(btn){
+  btn.textContent = '見張り中';
+  btn.classList.add('done');
+  btn.disabled = true;
+  document.getElementById('notif').classList.add('show');
+}
+function karte(btn){
+  document.getElementById('karte').classList.add('show');
+  btn.style.display = 'none';
+}
+function brewmap(btn){
+  document.getElementById('mapcard').classList.add('show');
+  btn.style.display = 'none';
+}
+function press(btn){
+  document.getElementById('article').classList.add('show');
+  btn.style.display = 'none';
+}
+</script>
+</body>
+</html>
