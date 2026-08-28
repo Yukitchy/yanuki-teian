@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>矢貫さん専用 AI活用カタログ｜2026.8.28 ワルプルギスの廻天 記念号</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@400;500;700;900&family=Oswald:wght@500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --red:#B3372E;          /* チネチッタの座席の赤 */
+  --coffee:#6B4A32;       /* ネルドリップの色 */
+  --ink:#26201B;
+  --sub:#6E655D;
+  --line:#DDD7CE;
+  --bg:#EFECE5;           /* フラットな明るい地 */
+  --card:#FFFDF8;
+  --gold:#F2C94C;
+  --deco:rgba(255,255,255,.55);
+  --ease-out:cubic-bezier(.22,1,.36,1);
+  --spring:cubic-bezier(.34,1.56,.64,1);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  font-family:"Zen Kaku Gothic New",-apple-system,BlinkMacSystemFont,"Hiragino Sans","Noto Sans JP",sans-serif;
+  background:var(--bg);color:var(--ink);line-height:1.85;
+  -webkit-font-smoothing:antialiased;
+}
+body,p,li,td,th,div,span,b,small,summary,button,a,h1,h2,h3,h4{
+  word-break:auto-phrase;line-break:strict;overflow-wrap:anywhere;
+}
+h1,h2,h3,h4,.btn,.chip,.eyebrow,.sec-t,.sec-lead,.badge{text-wrap:balance}
+p{text-wrap:pretty}
+img{max-width:100%}
+.wrap{max-width:880px;margin:0 auto;padding:0 20px;position:relative;z-index:1}
+section{position:relative;overflow:hidden;padding:64px 0}
+section::before{content:"";position:absolute;pointer-events:none;z-index:0}
+section:nth-of-type(4n+1)::before{top:-40px;right:-60px;width:220px;height:220px;background:var(--deco);border-radius:0 0 0 100%}
+section:nth-of-type(4n+2)::before{bottom:24px;right:-10px;width:180px;height:140px;background-image:radial-gradient(var(--deco) 2px,transparent 2px);background-size:18px 18px}
+section:nth-of-type(4n+3)::before{top:60px;right:-70px;width:200px;height:200px;border-radius:50%;border:14px solid var(--deco)}
+section:nth-of-type(4n+4)::before{top:40px;right:-40px;width:150px;height:26px;border-radius:999px;background:var(--deco);box-shadow:0 52px 0 -4px var(--deco),0 104px 0 8px var(--deco)}
+
+.eyebrow{letter-spacing:.18em;font-size:13px;font-weight:900;color:var(--red);text-transform:uppercase}
+.sec-t{font-size:clamp(26px,5vw,36px);font-weight:900;line-height:1.4;margin:6px 0 10px}
+.sec-lead{color:var(--sub);max-width:62ch;font-size:15px}
+
+/* ===== ヒーロー：半券 ===== */
+.hero{background:var(--ink);color:#F5EFE6;padding:72px 0 80px}
+.hero::before{top:-120px;right:-120px;width:340px;height:340px;border-radius:50%;background:radial-gradient(circle,rgba(242,201,76,.25),transparent 70%);border:none;box-shadow:none}
+.ticket{
+  background:var(--card);color:var(--ink);border-radius:14px;max-width:640px;margin:26px auto 0;
+  position:relative;
+  box-shadow:0 2px 6px rgba(0,0,0,.25),0 24px 50px rgba(0,0,0,.4);
+  animation:in .9s var(--ease-out) both;
+}
+@keyframes in{from{opacity:0;transform:translateY(26px) scale(.97)}to{opacity:1;transform:translateY(0) scale(1)}}
+.ticket::before,.ticket::after{content:"";position:absolute;width:26px;height:26px;border-radius:50%;background:var(--ink);top:50%;transform:translateY(-50%)}
+.ticket::before{left:-13px}
+.ticket::after{right:-13px}
+.t-main{padding:26px 30px;border-bottom:2px dashed var(--line)}
+.t-date{font-family:"Oswald",sans-serif;font-size:15px;letter-spacing:.12em;color:var(--red);font-weight:600}
+.t-title{font-size:clamp(19px,4vw,24px);font-weight:900;line-height:1.5;margin-top:4px}
+.t-sub{font-size:13px;color:var(--sub);margin-top:6px}
+.t-foot{padding:14px 30px;display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap}
+.t-seat{font-family:"Oswald",sans-serif;letter-spacing:.1em;font-size:14px;color:var(--coffee);font-weight:600}
+.t-adm{font-size:12.5px;font-weight:700;background:var(--red);color:#fff;border-radius:999px;padding:3px 14px;white-space:nowrap}
+.hero h1{font-size:clamp(28px,6vw,42px);font-weight:900;line-height:1.5;text-align:center;margin-top:44px}
+.hero .lead{color:#CBBFB0;text-align:center;max-width:56ch;margin:14px auto 0;font-size:15px}
+.hero .mark{color:var(--gold)}
+
+/* ===== 観測記録 ===== */
+.obs{display:grid;grid-template-columns:repeat(2,1fr);gap:0;margin-top:28px;background:var(--card);border-radius:16px;overflow:hidden}
+.ob{padding:22px 24px;border-bottom:1px solid var(--line)}
+.ob:nth-child(odd){border-right:1px solid var(--line)}
+.ob:nth-last-child(-n+1){border-bottom:none}
+.ob .ic{font-size:22px}
+.ob h3{font-size:16px;font-weight:900;margin:6px 0 4px}
+.ob p{font-size:13.5px;color:var(--sub)}
+.quote{margin-top:18px;background:transparent;border-left:4px solid var(--gold);padding:6px 18px;color:var(--sub);font-size:14px}
+.quote b{color:var(--ink)}
+
+/* ===== 試作 ===== */
+.proto{background:var(--card);border-radius:18px;margin-top:34px;overflow:hidden}
+.p-head{padding:26px 28px 20px;border-bottom:1px solid var(--line)}
+.p-no{font-family:"Oswald",sans-serif;color:var(--red);font-weight:600;letter-spacing:.14em;font-size:13px}
+.p-name{font-size:clamp(20px,4.5vw,26px);font-weight:900;line-height:1.5;margin-top:2px}
+.p-copy{color:var(--sub);font-size:14px;margin-top:6px;max-width:60ch}
+.p-body{padding:24px 28px 30px}
+.demo-tag{display:inline-block;font-size:13px;font-weight:700;color:var(--coffee);background:color-mix(in srgb,var(--gold) 30%,var(--card));border-radius:999px;padding:2px 14px;margin-bottom:14px}
+
+/* 試作1 映画リスト */
+.movies{display:flex;flex-direction:column;gap:10px}
+.mv{display:flex;align-items:center;gap:14px;padding:14px 16px;background:var(--bg);border-radius:12px;flex-wrap:wrap}
+.mv .name{font-weight:700;font-size:14.5px;flex:1;min-width:180px}
+.mv .st{font-size:12.5px;font-weight:700;border-radius:999px;padding:2px 12px;white-space:nowrap}
+.st.ok{background:#DDEBDC;color:#2E6B3C}
+.st.wait{background:#F4E3C8;color:#8A5A16}
+.st.watch{background:#E3E0F4;color:#4C3E96}
+.mv button{font-family:inherit;font-size:13px;font-weight:700;border:none;border-radius:999px;padding:8px 18px;cursor:pointer;background:var(--red);color:#fff;transition:transform .12s var(--spring),box-shadow .12s ease}
+.mv button:hover{transform:translateY(-2px);box-shadow:0 8px 18px rgba(179,55,46,.3)}
+.mv button:active{transform:translateY(0) scale(.97)}
+.mv button.done{background:var(--line);color:var(--sub);cursor:default;transform:none;box-shadow:none}
+.notif{
+  margin-top:16px;background:#0F1F14;border-radius:14px;padding:16px 18px;color:#E9F2E6;
+  display:none;
+}
+.notif.show{display:block;animation:in .5s var(--ease-out) both}
+.notif .from{display:flex;align-items:center;gap:8px;font-size:12.5px;color:#9DC29B;font-weight:700}
+.notif .dot{width:26px;height:26px;border-radius:8px;background:#33C458;display:grid;place-items:center;font-size:14px}
+.notif p{font-size:14px;margin-top:8px;line-height:1.75}
+.notif .sample{font-size:12.5px;color:#7E9A7C;margin-top:8px}
+
+/* 試作2 邪推スタジオ */
+.memo{background:var(--bg);border-radius:12px;padding:16px 18px;font-size:13.5px;color:var(--sub);line-height:1.8}
+.memo .t{font-size:12.5px;font-weight:900;color:var(--coffee);letter-spacing:.08em;margin-bottom:6px}
+.studio-btn{display:block;margin:16px auto;font-family:inherit;font-size:14.5px;font-weight:900;border:none;border-radius:999px;padding:13px 30px;cursor:pointer;background:var(--ink);color:#fff;transition:transform .12s var(--spring),box-shadow .12s ease}
+.studio-btn:hover{transform:translateY(-2px);box-shadow:0 12px 26px rgba(38,32,27,.3)}
+.studio-btn:active{transform:translateY(0) scale(.97)}
+.note-card{display:none;background:linear-gradient(#FFFDF8,#FBF6EA);border-radius:14px;padding:22px 24px;box-shadow:0 14px 34px rgba(107,74,50,.18)}
+.note-card.show{display:block;animation:in .6s var(--ease-out) both}
+.note-card .nc-t{font-size:17px;font-weight:900;line-height:1.6}
+.note-card .nc-t .u{background:linear-gradient(transparent 62%,var(--gold) 62%);padding:0 3px}
+.nc-sec{margin-top:14px}
+.nc-sec h4{font-size:13px;font-weight:900;color:var(--red);letter-spacing:.08em}
+.nc-sec p{font-size:13.5px;color:#4A4038;margin-top:2px}
+.meter{margin-top:16px;font-size:12.5px;font-weight:700;color:var(--sub)}
+.meter .bar{height:8px;border-radius:999px;background:var(--line);margin-top:4px;overflow:hidden}
+.meter .fill{height:100%;width:85%;border-radius:999px;background:linear-gradient(90deg,var(--gold),var(--red))}
+.nc-foot{margin-top:14px;font-size:12.5px;color:var(--sub)}
+
+/* 試作3 語り部プレス */
+.talk{background:var(--bg);border-radius:12px;padding:16px 18px}
+.talk .t{font-size:12.5px;font-weight:900;color:var(--coffee);letter-spacing:.08em;margin-bottom:6px}
+.talk p{font-size:13.5px;color:var(--sub)}
+.article{display:none;background:var(--card);border:none;border-radius:4px;padding:26px 28px;box-shadow:0 14px 34px rgba(38,32,27,.14)}
+.article.show{display:block;animation:in .6s var(--ease-out) both}
+.article .a-cat{font-size:12.5px;font-weight:900;color:var(--red);letter-spacing:.14em}
+.article h4{font-size:19px;font-weight:900;line-height:1.6;margin:4px 0 10px}
+.article p{font-size:13.5px;color:#4A4038}
+.article .pull{border-left:4px solid var(--gold);padding:4px 14px;margin:12px 0;color:var(--coffee);font-weight:700;font-size:14px}
+
+/* ===== メニュー ===== */
+.menu{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin-top:28px}
+.mi{background:var(--card);border-radius:14px;padding:20px 22px;transition:transform .16s var(--ease-out)}
+.mi:hover{transform:translateY(-3px)}
+.mi .ic{font-size:22px}
+.mi h3{font-size:15.5px;font-weight:900;margin:6px 0 4px}
+.mi p{font-size:13px;color:var(--sub)}
+
+/* ===== 締め ===== */
+.last{background:var(--ink);color:#F5EFE6;text-align:center}
+.last .sec-t{color:#F5EFE6}
+.last p{color:#CBBFB0;max-width:54ch;margin:0 auto;font-size:14.5px}
+.last .big{font-size:clamp(19px,4vw,24px);font-weight:900;color:var(--gold);margin-top:22px}
+footer{padding:26px 0 40px;text-align:center;font-size:12.5px;color:var(--sub);background:var(--ink)}
+
+/* reveal */
+.reveal{animation:reveal-in linear both;animation-timeline:view();animation-range:entry 10% cover 30%}
+@keyframes reveal-in{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}
+@supports not (animation-timeline: view()){.reveal{animation:none;opacity:1;transform:none}}
+
+:focus-visible{outline:2px solid var(--red);outline-offset:2px}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+@media(max-width:700px){
+  .obs{grid-template-columns:1fr}
+  .ob:nth-child(odd){border-right:none}
+  .menu{grid-template-columns:1fr}
+  section{padding:48px 0}
+  .p-head,.p-body{padding-left:20px;padding-right:20px}
+}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="ticket">
+      <div class="t-main">
+        <div class="t-date">2026.08.28 FRI ／ CINECITTA' 川崎</div>
+        <div class="t-title">『劇場版 魔法少女まどか☆マギカ〈ワルプルギスの廻天〉』</div>
+        <div class="t-sub">2024冬 → 2025冬 → 2026夏。三度の延期を越えて、ついに公開。おめでとうございます。</div>
+      </div>
+      <div class="t-foot">
+        <div class="t-seat">SEAT：一番後ろの左端（矢貫さん予約）</div>
+        <div class="t-adm">鑑賞記念号</div>
+      </div>
+    </div>
+    <h1>矢貫さん専用<br><span class="mark">AI活用カタログ</span></h1>
+    <p class="lead">映画の待ち時間に、ユウキが勝手に作りました。ふだんのLINEでの会話から「矢貫さんの毎日にAIが効きそうなところ」を拾って、触れる試作にしてあります。ネタバレは一切ありません。</p>
+  </div>
+</header>
+
+<section class="reveal">
+  <div class="wrap">
+    <div class="eyebrow">FIELD NOTES</div>
+    <h2 class="sec-t">観測された矢貫さん</h2>
+    <p class="sec-lead">提案の根拠は全部、実際のやりとりから。間違ってたらランチのときに訂正してください。</p>
+    <div class="obs">
+      <div class="ob"><div class="ic">🎬</div><h3>映画の同志</h3><p>まどマギ、ガルクラ（川崎は聖地）、スピルバーグ新作、カンヌ出品アニメまで守備範囲が広い。座席は一番後ろの左端派。</p></div>
+      <div class="ob"><div class="ic">📚</div><h3>読んで、書く人</h3><p>『プロジェクト・ヘイル・メアリー』を薦め、書評の原稿も書く。読むだけで終わらない側の人。</p></div>
+      <div class="ob"><div class="ic">☕</div><h3>コーヒーの人</h3><p>手挽きミルを使い、飲み比べイベントに参加し、ネルドリップの焙煎所をチェックしている。</p></div>
+      <div class="ob"><div class="ic">🌳</div><h3>森の語り部</h3><p>小網代の森の保全運動の歴史を、1983年からの流れで語れる。この知識、ちゃんと形に残すべきでは。</p></div>
+    </div>
+    <div class="quote">しかも既にChatGPT使い。<b>「邪推おじの妄想をGPTにまとめてもらった」</b>——この一歩先を、下の試作でお見せします。</div>
+  </div>
+</section>
+
+<section class="reveal">
+  <div class="wrap">
+    <div class="eyebrow">PROTOTYPE 01</div>
+    <h2 class="sec-t">公開日番人</h2>
+    <p class="sec-lead">「そろそろ予定立てたいのに、日にち分からないと動けない」——あの悩みを解決。気になる映画を登録しておくと、AIが毎朝公式情報を見回りして、公開日の発表・延期・前売り開始をLINEに知らせます。</p>
+
+    <div class="proto">
+      <div class="p-head">
+        <div class="p-no">DEMO</div>
+        <div class="p-name">見張りリスト（触ってみて）</div>
+        <p class="p-copy">「見張る」を押すと、通知が来るとこんな感じ、というサンプルが出ます。</p>
+      </div>
+      <div class="p-body">
+        <div class="movies">
+          <div class="mv"><span class="name">ワルプルギスの廻天</span><span class="st ok">公開済・本日鑑賞</span><button class="done" disabled>任務完了</button></div>
+          <div class="mv"><span class="name">ディスクロージャー・デイ</span><span class="st wait">10/1 公開予定</span><button onclick="watch(this)">見張る</button></div>
+          <div class="mv"><span class="name">（気になる作品を何本でも）</span><span class="st watch">発表待ち</span><button onclick="watch(this)">見張る</button></div>
+        </div>
+        <div class="notif" id="notif">
+          <div class="from"><span class="dot">🔔</span>公開日番人（LINE通知のイメージ）</div>
+          <p>おはようございます。見張り中の『ディスクロージャー・デイ』、本日<b>前売り券の販売が始まりました</b>。10/1公開のままで延期の気配はありません。ユウキさんと予定を合わせるなら今週がおすすめです。</p>
+          <p class="sample">※これはサンプル通知です。実物は毎朝の見回り結果から自動生成されます。</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="reveal">
+  <div class="wrap">
+    <div class="eyebrow">PROTOTYPE 02</div>
+    <h2 class="sec-t">邪推おじスタジオ</h2>
+    <p class="sec-lead">GPTにまとめてもらう、のさらに先へ。思いついた妄想を音声でもメモでも投げ込むだけで、考察ジン（同人誌の1ページ風）に自動整形。ネタバレ配慮版と全開版を分けて出せるので、クラスのみんなにもシェアできます。</p>
+
+    <div class="proto">
+      <div class="p-head">
+        <div class="p-no">DEMO</div>
+        <div class="p-name">妄想 → 考察ノート 変換</div>
+        <p class="p-copy">投げ込むメモはこんな走り書きでOK。ボタンを押すと整形後が出ます。</p>
+      </div>
+      <div class="p-body">
+        <div class="memo">
+          <div class="t">📥 投げ込むメモ（サンプル）</div>
+          あの新キャラ、OPで一瞬だけ映る後ろ姿と髪の色が同じ気がする…主題歌の歌詞の「まわる」も絶対偶然じゃない。あと公式が公開日を金曜にしたのも何かある。考えすぎかもだけど。
+        </div>
+        <button class="studio-btn" onclick="brew(this)">☕ スタジオで整形する</button>
+        <div class="note-card" id="note">
+          <div class="nc-t">考察 #017：<span class="u">「まわる」は三重の伏線か</span></div>
+          <div class="nc-sec"><h4>■ 根拠（本編で確認できること）</h4><p>OPカットの後ろ姿と髪色の一致／主題歌歌詞のキーワード反復。</p></div>
+          <div class="nc-sec"><h4>■ 邪推（ここからが本番）</h4><p>公開日の曜日選びまで含めた「仕掛け」説。反証可能性も併記して、当たった時の説得力を最大化。</p></div>
+          <div class="meter">妄想度メーター<div class="bar"><div class="fill"></div></div></div>
+          <div class="nc-foot">🔒 ネタバレ配慮版／全開版をワンタップで切替 → そのままEvernoteやLINEへ。<br>※内容はデモ用の架空サンプルです。</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="reveal">
+  <div class="wrap">
+    <div class="eyebrow">PROTOTYPE 03</div>
+    <h2 class="sec-t">語り部プレス</h2>
+    <p class="sec-lead">小網代の森の保全史を語れる人は、そう多くない。散歩しながらスマホに話すだけで、AIが文字起こし→構成→記事に仕上げます。書評もこの方式なら、原稿用紙に向かう前に骨組みが出来上がる。</p>
+
+    <div class="proto">
+      <div class="p-head">
+        <div class="p-no">DEMO</div>
+        <div class="p-name">話し言葉 → 読み物</div>
+        <p class="p-copy">左が「話したまま」、ボタンで「記事になった姿」が出ます。</p>
+      </div>
+      <div class="p-body">
+        <div class="talk">
+          <div class="t">🎙 話したまま（文字起こしイメージ）</div>
+          <p>「小網代の森の保全運動ってのは、1983年からだからもう40年以上の歴史があってね、今は自然公園として保全管理されてるんだけど、ソーラーパネルとかにならなかったのは、まあ当時の人たちのおかげで…」</p>
+        </div>
+        <button class="studio-btn" onclick="press(this)">📰 記事に仕上げる</button>
+        <div class="article" id="article">
+          <div class="a-cat">連載・森を残した人たち 第1回</div>
+          <h4>1983年、小網代の森で始まったこと</h4>
+          <p>三浦半島に、流域がまるごと残された森がある。開発の波を越えて自然公園として守られるまでには、40年を超える保全運動の積み重ねがあった。</p>
+          <div class="pull">「あの森が今もあるのは、偶然じゃない」</div>
+          <p>——続きは、矢貫さんが話した分だけ自動で増えていきます。<br>※文章の構成はサンプルです。</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="reveal">
+  <div class="wrap">
+    <div class="eyebrow">SIDE MENU</div>
+    <h2 class="sec-t">小さいけど効くやつ</h2>
+    <p class="sec-lead">本日のおすすめ以外にも、こんな一品料理をご用意できます。</p>
+    <div class="menu">
+      <div class="mi"><div class="ic">☕</div><h3>飲み比べ手帖</h3><p>豆の写真を1枚撮るだけで、焙煎所・豆・日付・ひとこと感想をカード化。あとから「あの時の豆」を検索できる。</p></div>
+      <div class="mi"><div class="ic">🔩</div><h3>なくしもの台帳</h3><p>ミルのバネとネジの事件を繰り返さない。「どこに何をしまったか」を写真で記録、聞けば答える。</p></div>
+      <div class="mi"><div class="ic">📖</div><h3>書評の壁打ち相手</h3><p>読み終えた本の感想を話すと、論点を整理して質問を返してくる。原稿の下ごしらえが半分終わる。</p></div>
+      <div class="mi"><div class="ic">👻</div><h3>都市伝説ファクトチェッカー</h3><p>動画で見た「アレって本当？」を出典つきで検証。邪推の精度が上がる（上げてどうする）。</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="last">
+  <div class="wrap">
+    <h2 class="sec-t">気になったのは、どれですか</h2>
+    <p>申込みフォームなんてありません。このあとのランチで、番号か名前をひとこと言ってもらえれば、ユウキがその場で作り始めます。</p>
+    <div class="big">☕ それでは、遅めのランチで。</div>
+  </div>
+</section>
+
+<footer>2026.8.28 ワルプルギスの廻天 公開記念 ／ 制作：ユウキ ＋ AI（このページも今朝のカフェで生まれました）</footer>
+
+<script>
+function watch(btn){
+  btn.textContent='見張り中';
+  btn.classList.add('done');
+  btn.disabled=true;
+  document.getElementById('notif').classList.add('show');
+}
+function brew(btn){
+  document.getElementById('note').classList.add('show');
+  btn.style.display='none';
+}
+function press(btn){
+  document.getElementById('article').classList.add('show');
+  btn.style.display='none';
+}
+</script>
+</body>
+</html>
